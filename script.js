@@ -8,3 +8,8 @@ function getComputerChoice() {
   if (numberRoll === 1) return "paper";
   if (numberRoll === 2) return "scissors";
 }
+
+function getHumanChoice() {
+  const choice = prompt("Rock, Paper or Scissors?");
+  return choice;
+}
