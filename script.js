@@ -50,3 +50,8 @@ function playRound(humanChoice, computerChoice) {
     computerScore++;
   }
 }
+
+const playerSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(playerSelection, computerSelection);
