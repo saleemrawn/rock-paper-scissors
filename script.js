@@ -14,7 +14,7 @@ function getComputerChoice() {
 
 function getHumanChoice() {
   const choice = prompt("Rock, Paper or Scissors?");
-  return choice;
+  return choice.toLowerCase();
 }
 
 function playRound(humanChoice, computerChoice) {
