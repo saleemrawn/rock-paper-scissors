@@ -1,3 +1,6 @@
+let computerScore = 0;
+let humanScore = 0;
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
