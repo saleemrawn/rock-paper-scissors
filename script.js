@@ -39,6 +39,14 @@ function getHumanChoice() {
   return choice.toLowerCase();
 }
 
+function checkWinner() {
+  const gameAnnoucement = document.querySelector(".game-announcement");
+
+  if (humanScore === 5) gameAnnoucement.innerHTML = "Game over! You win.";
+  if (computerScore === 5)
+    gameAnnoucement.innerHTML = "Game over! You lose, computer wins.";
+}
+
 function getWinner(humanScore, computerScore) {
   if (humanScore > computerScore) {
     console.log(
@@ -110,7 +118,7 @@ function playRound() {
     console.log("You lose!, Rock beats Scissors");
     computerScore++;
   }
-
+  checkWinner();
   printScores(humanScore, computerScore);
 }
 
