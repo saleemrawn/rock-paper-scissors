@@ -47,7 +47,7 @@ function checkWinner() {
     gameAnnoucement.innerHTML = "Game over! You lose, computer wins.";
 }
 
-function getWinner(humanScore, computerScore) {
+/* function getWinner(humanScore, computerScore) {
   if (humanScore > computerScore) {
     console.log(
       `
@@ -77,13 +77,30 @@ function getWinner(humanScore, computerScore) {
     Your score: ${humanScore}
     Computer: ${computerScore}`
   );
-}
+} */
 
-function printScores(humanScore, computerScore) {
+/* function printScores(humanScore, computerScore) {
   console.log(
     `Your score: ${humanScore}
      Computer score: ${computerScore}`
   );
+} */
+
+function updateScore(player) {
+  const playerLabel = document.querySelector(".player-score");
+  const computerLabel = document.querySelector(".computer-score");
+
+  if (player === "human") {
+    humanScore++;
+    playerLabel.innerHTML = humanScore;
+    return;
+  }
+
+  if (player === "computer") {
+    computerScore++;
+    computerLabel.innerHTML = computerScore;
+    return;
+  }
 }
 
 function playRound() {
@@ -91,38 +108,38 @@ function playRound() {
 
   if (humanChoice === "rock" && computerChoice === "scissors") {
     console.log("You win!, Rock beats Scissors");
-    humanScore++;
+    updateScore("human");
   }
 
   if (humanChoice === "paper" && computerChoice === "rock") {
     console.log("You win!, Paper beats Rock");
-    humanScore++;
+    updateScore("human");
   }
 
   if (humanChoice === "scissors" && computerChoice === "paper") {
     console.log("You win!, Scissors beats Paper");
-    humanScore++;
+    updateScore("human");
   }
 
   if (humanChoice === "rock" && computerChoice === "paper") {
     console.log("You lose!, Paper beats Rock");
-    computerScore++;
+    updateScore("computer");
   }
 
   if (humanChoice === "paper" && computerChoice === "scissors") {
     console.log("You lose!, Scissors beats Paper");
-    computerScore++;
+    updateScore("computer");
   }
 
   if (humanChoice === "scissors" && computerChoice === "rock") {
     console.log("You lose!, Rock beats Scissors");
-    computerScore++;
+    updateScore("computer");
   }
   checkWinner();
-  printScores(humanScore, computerScore);
+  //printScores(humanScore, computerScore);
 }
 
-function playGame() {
+/* function playGame() {
   const rounds = 5;
 
   let computerScore = 0;
@@ -139,6 +156,6 @@ function playGame() {
 
     if (i === rounds) getWinner(humanScore, computerScore);
   }
-}
+} */
 
 //playGame();
