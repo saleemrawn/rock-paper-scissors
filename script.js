@@ -42,9 +42,20 @@ function getHumanChoice() {
 function checkWinner() {
   const gameAnnoucement = document.querySelector(".game-announcement");
 
-  if (humanScore === 5) gameAnnoucement.innerHTML = "Game over! You win.";
-  if (computerScore === 5)
-    gameAnnoucement.innerHTML = "Game over! You lose, computer wins.";
+  if (humanScore === 5) {
+    setAnnoucementText("Game over! You win.");
+    return;
+  }
+
+  if (computerScore === 5) {
+    setAnnoucementText("Game over! You lose, computer wins.");
+    return;
+  }
+}
+
+function setAnnoucementText(text) {
+  const gameAnnoucement = document.querySelector(".game-announcement");
+  gameAnnoucement.innerHTML = text;
 }
 
 /* function getWinner(humanScore, computerScore) {
@@ -104,35 +115,44 @@ function updateScore(player) {
 }
 
 function playRound() {
-  if (humanChoice === computerChoice) console.log("Draw!");
+  if (humanChoice === computerChoice) {
+    //console.log("Draw!");
+    setAnnoucementText("Draw!");
+  }
 
   if (humanChoice === "rock" && computerChoice === "scissors") {
-    console.log("You win!, Rock beats Scissors");
+    //console.log("You win!, Rock beats Scissors");
+    setAnnoucementText("You win!, Rock beats Scissors");
     updateScore("human");
   }
 
   if (humanChoice === "paper" && computerChoice === "rock") {
-    console.log("You win!, Paper beats Rock");
+    //console.log("You win!, Paper beats Rock");
+    setAnnoucementText("You win!, Paper beats Rock");
     updateScore("human");
   }
 
   if (humanChoice === "scissors" && computerChoice === "paper") {
-    console.log("You win!, Scissors beats Paper");
+    //console.log("You win!, Scissors beats Paper");
+    setAnnoucementText("You win!, Scissors beats Paper");
     updateScore("human");
   }
 
   if (humanChoice === "rock" && computerChoice === "paper") {
-    console.log("You lose!, Paper beats Rock");
+    //console.log("You lose!, Paper beats Rock");
+    setAnnoucementText("You lose!, Paper beats Rock");
     updateScore("computer");
   }
 
   if (humanChoice === "paper" && computerChoice === "scissors") {
-    console.log("You lose!, Scissors beats Paper");
+    //console.log("You lose!, Scissors beats Paper");
+    setAnnoucementText("You lose!, Scissors beats Paper");
     updateScore("computer");
   }
 
   if (humanChoice === "scissors" && computerChoice === "rock") {
-    console.log("You lose!, Rock beats Scissors");
+    //console.log("You lose!, Rock beats Scissors");
+    setAnnoucementText("You lose!, Rock beats Scissors");
     updateScore("computer");
   }
   checkWinner();
